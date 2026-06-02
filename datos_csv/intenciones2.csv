@@ -1,0 +1,211 @@
+texto,intencion
+hola,saludo
+buenos dias,saludo
+buenas tardes,saludo
+buenas noches,saludo
+hey hola,saludo
+que tal,saludo
+hola que tal estais,saludo
+buenas,saludo
+hola buenas,saludo
+muy buenas,saludo
+hola necesito ayuda,saludo
+buenos dias necesito informacion,saludo
+hola me podeis ayudar,saludo
+buenas queria hacer una consulta,saludo
+hola estoy mirando viajes,saludo
+que hay,saludo
+holaa,saludo
+hola agencia,saludo
+buen dia,saludo
+buenas equipo,saludo
+hola tengo una duda,saludo
+saludos,saludo
+hola como va,saludo
+ey buenas,saludo
+buenos dias a todos,saludo
+hola queria preguntar algo,saludo
+buenas me atienden,saludo
+hola hay alguien,saludo
+buenas necesito asistencia,saludo
+hola quiero informacion,saludo
+adios,despedida
+hasta luego,despedida
+nos vemos,despedida
+muchas gracias por la ayuda,despedida
+gracias hasta luego,despedida
+perfecto gracias,despedida
+de acuerdo muchas gracias,despedida
+vale gracias,despedida
+chao,despedida
+hasta pronto,despedida
+gracias por todo,despedida
+me ha servido gracias,despedida
+ya esta gracias,despedida
+muchisimas gracias,despedida
+ok gracias adios,despedida
+gracias que tengas buen dia,despedida
+hasta otra,despedida
+genial gracias,despedida
+muy amable gracias,despedida
+lo dejo aqui gracias,despedida
+gracias por atenderme,despedida
+hasta la proxima,despedida
+me voy gracias,despedida
+todo claro gracias,despedida
+gracias por la informacion,despedida
+bien gracias,despedida
+perfecto lo reviso gracias,despedida
+cerramos por aqui gracias,despedida
+gracias y buen dia,despedida
+vale hasta luego,despedida
+quiero ir a la playa,recomendacion_viaje
+recomiendame un destino frio,recomendacion_viaje
+busco un viaje barato para la familia,recomendacion_viaje
+donde puedo ir de luna de miel,recomendacion_viaje
+quiero hacer una escapada romantica,recomendacion_viaje
+me apetece un destino con sol,recomendacion_viaje
+busco un viaje tranquilo para descansar,recomendacion_viaje
+que destino me recomiendas para verano,recomendacion_viaje
+quiero viajar en invierno a algun sitio bonito,recomendacion_viaje
+necesito ideas para viajar con niños,recomendacion_viaje
+me gustaria visitar una ciudad europea,recomendacion_viaje
+quiero un viaje de aventura,recomendacion_viaje
+busco destino economico para agosto,recomendacion_viaje
+dime sitios buenos para desconectar,recomendacion_viaje
+quiero viajar a un lugar con naturaleza,recomendacion_viaje
+que sitio es bueno para ir en pareja,recomendacion_viaje
+me recomiendas algun destino de playa barato,recomendacion_viaje
+busco vacaciones con todo incluido,recomendacion_viaje
+quiero hacer un viaje cultural,recomendacion_viaje
+necesito inspiracion para mis vacaciones,recomendacion_viaje
+donde puedo ir con poco presupuesto,recomendacion_viaje
+quiero un destino con buena comida,recomendacion_viaje
+busco una escapada de fin de semana,recomendacion_viaje
+me gustaria viajar a algun sitio exotico,recomendacion_viaje
+quiero un destino para relajarme,recomendacion_viaje
+que viaje me aconsejas para primavera,recomendacion_viaje
+busco algo bonito y no muy caro,recomendacion_viaje
+quiero viajar solo y no se donde ir,recomendacion_viaje
+recomiendame un lugar para navidad,recomendacion_viaje
+dime un destino para celebrar aniversario,recomendacion_viaje
+el hotel estaba sucio,queja
+quiero poner una reclamacion,queja
+ha sido un desastre de viaje,queja
+no estoy nada contento con el servicio,queja
+el vuelo se retraso demasiado,queja
+la habitacion no era como la de las fotos,queja
+me han tratado fatal en el hotel,queja
+quiero quejarme de la reserva,queja
+el viaje no cumplio lo prometido,queja
+la agencia no me aviso del cambio,queja
+esto ha sido una mala experiencia,queja
+el alojamiento tenia problemas,queja
+no me solucionaron nada,queja
+me siento engañado con el paquete,queja
+la excursion fue muy mala,queja
+el transporte nunca llego,queja
+la atencion al cliente fue pesima,queja
+el viaje salio fatal,queja
+quiero reclamar el dinero,queja
+hubo muchos problemas durante el viaje,queja
+el hotel no estaba limpio,queja
+no recibimos lo contratado,queja
+la organizacion fue horrible,queja
+me han cobrado algo que no tocaba,queja
+nadie nos atendio en destino,queja
+el servicio fue muy deficiente,queja
+tengo una queja sobre mi viaje,queja
+no recomiendo este paquete,queja
+me dieron una habitacion incorrecta,queja
+todo fue peor de lo esperado,queja
+quiero contratar este paquete,reserva
+necesito reservar para agosto,reserva
+quiero hacer una reserva,reserva
+me gustaria reservar este viaje,reserva
+quiero comprar el paquete,reserva
+como puedo reservar la oferta,reserva
+necesito reservar para dos personas,reserva
+quiero cerrar la reserva hoy,reserva
+me interesa contratar el viaje,reserva
+quiero reservar hotel y vuelo,reserva
+puedo reservar para septiembre,reserva
+quiero confirmar una reserva,reserva
+quiero reservar unas vacaciones,reserva
+necesito contratar un viaje familiar,reserva
+me quedo con este destino,reserva
+quiero pagar la reserva,reserva
+como contrato este viaje,reserva
+quiero reservar una escapada,reserva
+necesito plaza para cuatro personas,reserva
+quiero dejar reservado el paquete,reserva
+me gustaria bloquear esas fechas,reserva
+quiero reservar cuanto antes,reserva
+puedes hacerme la reserva,reserva
+quiero reservar con salida desde Madrid,reserva
+necesito reservar vuelos y alojamiento,reserva
+quiero reservar para el puente,reserva
+me interesa esta oferta y quiero contratar,reserva
+quiero formalizar la reserva,reserva
+necesito hacer la reserva del viaje,reserva
+quiero reservar el todo incluido,reserva
+necesito anular mi viaje,cancelacion
+como cancelo el vuelo,cancelacion
+quiero cancelar mi reserva,cancelacion
+necesito cancelar el paquete,cancelacion
+puedo anular la reserva,cancelacion
+quiero dar de baja el viaje,cancelacion
+no voy a poder viajar y quiero cancelar,cancelacion
+como puedo cancelar mis vacaciones,cancelacion
+quiero cancelar el hotel,cancelacion
+necesito cancelar por motivos personales,cancelacion
+me gustaria anular el viaje,cancelacion
+quiero saber si puedo cancelar,cancelacion
+necesito cancelar la reserva de agosto,cancelacion
+como se anula un viaje contratado,cancelacion
+quiero cancelar todo el paquete,cancelacion
+no puedo ir al viaje,cancelacion
+quiero cancelar y pedir reembolso,cancelacion
+necesito modificar o cancelar la reserva,cancelacion
+quiero dejar sin efecto la reserva,cancelacion
+deseo cancelar mi vuelo,cancelacion
+como hago para anular el hotel,cancelacion
+quiero cancelar la escapada,cancelacion
+tengo que cancelar el viaje familiar,cancelacion
+me ha surgido un problema y no puedo viajar,cancelacion
+quiero cancelar mi reserva cuanto antes,cancelacion
+necesito saber los gastos de cancelacion,cancelacion
+quiero anular el viaje contratado,cancelacion
+puedo cancelar sin penalizacion,cancelacion
+quiero cancelar porque cambiaron las fechas,cancelacion
+necesito cancelar mi luna de miel,cancelacion
+pasame con un agente,contacto_humano
+quiero hablar con una persona,contacto_humano
+necesito hablar con alguien,contacto_humano
+puede atenderme un agente,contacto_humano
+quiero que me llame una persona,contacto_humano
+no quiero hablar con un bot,contacto_humano
+pasame con atencion al cliente,contacto_humano
+quiero contactar con un asesor,contacto_humano
+necesito asistencia humana,contacto_humano
+puedo hablar con un operador,contacto_humano
+quiero que me atienda alguien real,contacto_humano
+pasame con una persona por favor,contacto_humano
+necesito un agente de viajes,contacto_humano
+quiero hablar con soporte,contacto_humano
+me puede atender una persona,contacto_humano
+quiero contactar con la agencia,contacto_humano
+hay alguien que pueda ayudarme,contacto_humano
+necesito que me atienda un humano,contacto_humano
+quiero hablar con un comercial,contacto_humano
+pasame con el departamento de reservas,contacto_humano
+quiero que me llamen,contacto_humano
+necesito hablar con un responsable,contacto_humano
+puedo contactar con una persona de la agencia,contacto_humano
+quiero atencion personalizada,contacto_humano
+prefiero hablar con un trabajador,contacto_humano
+ponme con un agente de viajes,contacto_humano
+necesito ayuda de una persona real,contacto_humano
+quiero que me responda alguien del equipo,contacto_humano
+pasame con soporte humano,contacto_humano
+quiero hablar con un asesor de viajes,contacto_humano

@@ -24,3 +24,7 @@ Thumbs.db
 
 # Documentacion local
 memoria_chatbot.pdf
+
+# Base de datos local
+database/*.db
+database/*.db-journal

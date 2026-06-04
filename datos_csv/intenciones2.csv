@@ -166,7 +166,7 @@ como se anula un viaje contratado,cancelacion
 quiero cancelar todo el paquete,cancelacion
 no puedo ir al viaje,cancelacion
 quiero cancelar y pedir reembolso,cancelacion
-necesito modificar o cancelar la reserva,cancelacion
+necesito cancelar la reserva,cancelacion
 quiero dejar sin efecto la reserva,cancelacion
 deseo cancelar mi vuelo,cancelacion
 como hago para anular el hotel,cancelacion
@@ -209,3 +209,45 @@ necesito ayuda de una persona real,contacto_humano
 quiero que me responda alguien del equipo,contacto_humano
 pasame con soporte humano,contacto_humano
 quiero hablar con un asesor de viajes,contacto_humano
+quiero consultar mi reserva,consulta_reserva
+consultar reserva,consulta_reserva
+ver mi reserva,consulta_reserva
+quiero consultar mi reserva,consulta_reserva
+quiero ver mi reserva,consulta_reserva
+quiero comprobar mi reserva,consulta_reserva
+quiero revisar mi reserva,consulta_reserva
+necesito consultar una reserva,consulta_reserva
+tengo un número de reserva,consulta_reserva
+quiero buscar mi reserva,consulta_reserva
+quiero saber el estado de mi reserva,consulta_reserva
+quiero ver los datos de mi reserva,consulta_reserva
+quiero comprobar los datos de mi viaje,consulta_reserva
+puedes consultar mi reserva,consulta_reserva
+necesito ver la información de mi reserva,consulta_reserva
+dónde puedo ver mi reserva,consulta_reserva
+quiero recuperar mi reserva,consulta_reserva
+quiero saber si mi reserva está activa,consulta_reserva
+necesito comprobar una reserva,consulta_reserva
+quiero ver los datos de mi reserva,consulta_reserva
+tengo un número de reserva,consulta_reserva
+quiero modificar mi reserva,modificar_reserva
+modificar reserva,modificar_reserva
+cambiar fecha de mi viaje,modificar_reserva
+cambiar destino de mi reserva,modificar_reserva
+quiero cambiar el número de personas,modificar_reserva
+necesito actualizar una reserva,modificar_reserva
+quiero modificar mi reserva,modificar_reserva
+quiero cambiar mi reserva,modificar_reserva
+necesito modificar una reserva,modificar_reserva
+quiero actualizar mi reserva,modificar_reserva
+quiero cambiar la fecha de mi viaje,modificar_reserva
+quiero cambiar el destino de mi reserva,modificar_reserva
+quiero cambiar el número de personas,modificar_reserva
+quiero editar mi reserva,modificar_reserva
+necesito cambiar los datos de mi reserva,modificar_reserva
+quiero cambiar mi viaje,modificar_reserva
+puedo modificar la fecha de salida,modificar_reserva
+quiero añadir más personas a la reserva,modificar_reserva
+quiero quitar personas de la reserva,modificar_reserva
+quiero cambiar los datos del viaje,modificar_reserva
+necesito actualizar los datos de mi viaje,modificar_reserva

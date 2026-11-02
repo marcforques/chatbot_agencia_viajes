@@ -1,127 +1,93 @@
 # Chatbot inteligente para agencia de viajes
 
-Proyecto de chatbot desarrollado en Python para simular la atención al cliente de una agencia de viajes.
+Chatbot de atención al cliente para una agencia de viajes, hecho en Python con **IA ejecutada en local**
+(sin APIs de pago):
 
-La aplicación permite interpretar la intención del usuario, recomendar destinos tur´siticos a partir de un catálogo propio, analizar el sentimiento de mensajes relacionados con quejas o valoraciones y y gestionar reservas mediante una base de datos local SQLite.
+- Entiende **qué quiere el usuario** (9 intenciones) mediante embeddings y búsqueda por similitud con FAISS.
+- **Recomienda destinos** de un catálogo propio con un esquema RAG: busca los destinos más parecidos a la
+  petición y un LLM local (**Llama 3.2 vía Ollama**) redacta la respuesta.
+- **Analiza el sentimiento** de quejas y valoraciones con un modelo BERT multilingüe.
+- **Gestiona reservas** (crear, consultar, modificar y cancelar) en una base de datos SQLite.
 
+**Stack:** Python · Streamlit · Sentence Transformers · FAISS · Hugging Face Transformers · LangChain ·
+Ollama (Llama 3.2) · SQLite · Pandas · NumPy
 
-## Tecnologías utilizadas
+## Cómo funciona
 
-- Python
-- Streamlit
-- Pandas
-- Numpy
-- FAISS
-- Sentence Transformers
-- Hugging Face Transformers
-- LangChain
-- Ollama: Llama 3.2
-- SQLite
+```mermaid
+flowchart LR
+    U[Mensaje del usuario] --> E[Embedding<br/>all-MiniLM-L6-v2]
+    E --> F[FAISS: ejemplo más parecido<br/>251 frases etiquetadas]
+    F -->|recomendacion_viaje| R[Búsqueda de los 3 destinos más afines<br/>FAISS sobre 41 destinos]
+    R --> L[Llama 3.2 vía Ollama + LangChain<br/>con los destinos y el historial]
+    F -->|queja| S[BERT multilingüe<br/>1-5 estrellas → negativo / neutral / positivo]
+    F -->|reserva, consulta, modificar,<br/>cancelación| D[(SQLite)]
+    F -->|saludo, despedida,<br/>contacto humano| T[Respuesta predefinida]
+```
 
+| Componente | Archivo | Cómo está hecho |
+|---|---|---|
+| Intención | `modelos/intencion.py` | Las 251 frases de ejemplo de `intenciones2.csv` se convierten en vectores con `all-MiniLM-L6-v2` y se indexan en FAISS (`IndexFlatL2`). Cada mensaje recibe la intención de su ejemplo más cercano. |
+| Recomendación (RAG) | `modelos/recomendacion_destino.py` | Los 41 destinos de `destinos2.csv` (país, tipo, clima, presupuesto, duración, público) se indexan igual. Los 3 más afines y los últimos mensajes de la conversación se pasan a Llama 3.2 con un `PromptTemplate` de LangChain que le pide recomendar solo los destinos del contexto que cumplan lo pedido (región, clima, presupuesto) y decir que no hay opciones si ninguno encaja. |
+| Sentimiento | `modelos/sentimientos.py` | `nlptown/bert-base-multilingual-uncased-sentiment` devuelve de 1 a 5 estrellas: ≤ 2 es negativo, 3 neutral y ≥ 4 positivo, junto con la confianza del modelo. |
+| Reservas | `modelos/reservas_db.py` | SQLite con identificador único por reserva. Las cancelaciones no borran la fila: cambian el estado a «cancelada». |
+| Interfaz | `chatbot.py` | Chat de Streamlit con el historial en sesión y formularios para los datos de la reserva. |
 
-## Funcionalidades principales
+**Intenciones (9):** saludo, despedida, recomendación de viaje, reserva, consulta de reserva,
+modificación, cancelación, queja y contacto humano. Los datos son **sintéticos**, creados para el proyecto.
 
-- Interfaz conversacional mediante Streamlit.
-- Clasificación semántica de la intención del usuario.
-- Recomendación de destinos turísticos usando embeddings y búsqueda vectorial.
-- Generación de respuestas naturales con un modelo LLM local mediante Ollama.
-- Análisis de sentimiento para mensajes de queja o valoración.
-- Uso de datasets sintéticos en formato CSV.
-- Gestión de reservas mediante una base de datos SQLite.
-- Creación de reservas con número único.
-- Consulta de reservas existentes.
-- Modificación de reservas.
-- Cancelación lógica de reservas mediante cambio de estado.
-- Control básico de errores cuando algún componente no está disponible.
-
-
-## Funcionamiento general
-
-El chatbot recibe un mensaje del usuario desde la interfaz de Streamlit.
-
-Primero, el sistema clasifica la intención del mensaje mediante embeddings generados con Sentence Transformers y búsqueda de similitud con FAISS.
-
-Según la intención detectada, el chatbot puede seguir diferentes flujos:
-
-- Si el usuario busca una recomendación de viaje, se consulta el catálogo de destinos y se genera una respuesta personalizada usando Llama 3.2 mediante Ollama.
-- Si el usuario escribe una queja o valoración, se analiza el sentimiento del mensaje con un modelo de Hugging Face.
-- Si el usuario quiere crear una reserva, se muestra un formulario y se guarda la información en una base de datos SQLite.
-- Si el usuario quiere consultar una reserva, se busca por número de reserva en la base de datos.
-- Si el usuario quiere modificar una reserva, se actualizan los datos principales y se cambia su estado a modificada.
-- Si el usuario quiere cancelar una reserva, no se elimina de la base de datos, sino que se cambia su estado a cancelada.
-- Si el sistema detecta saludos, despedidas o contacto humano, responde con mensajes controlados.
-
-## Estructura del proyecto
+## Estructura
 
 ```text
-chatbot-agencia-viajes/
-│
-├── chatbot.py
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
+chatbot_agencia_viajes/
+├── chatbot.py                    # interfaz Streamlit y flujo de la conversación
 ├── datos_csv/
-│   ├── destinos2.csv
-│   └── intenciones2.csv
-│
-└── modelos/
-    ├── intencion.py
-    ├── recomendacion_destino.py
-    ├── sentimientos.py
-    └── reservas_db.py
+│   ├── intenciones2.csv          # 251 frases etiquetadas
+│   └── destinos2.csv             # catálogo de 41 destinos
+├── modelos/
+│   ├── intencion.py
+│   ├── recomendacion_destino.py
+│   ├── sentimientos.py
+│   └── reservas_db.py
+└── requirements.txt
 ```
 
 ## Instalación y ejecución
 
-### 1. Clonar el repositorio
+Necesitas Python 3.10 o superior y [Ollama](https://ollama.com) instalado.
+
+```bash
 git clone https://github.com/marcforques/chatbot_agencia_viajes.git
 cd chatbot_agencia_viajes
-
-### 2. Crear un entorno virtual y activarlo
 python -m venv .venv
-.venv\Scripts\activate
+```
 
-### 3. Instalar dependencias
+Activa el entorno: en Windows `.venv\Scripts\activate`; en Mac/Linux `source .venv/bin/activate`.
+
+```bash
 pip install -r requirements.txt
-
-### 4. Instalar ollama y descargar el modelo
 ollama pull llama3.2
-
-### 5. Ejecutar aplicación
 streamlit run chatbot.py
+```
 
+La primera ejecución descarga los modelos de Hugging Face (embeddings y BERT). Si Ollama no está abierto,
+el chatbot sigue funcionando y avisa de que no puede generar recomendaciones.
 
-## Estado del proyecto
+## Limitaciones
 
-El proyecto se encuentra en una segunda versión funcional.
-
-Actualmente permite probar un flujo completo de chatbot con clasificación de intención, recuperación de información desde un catálogo de destinos, generación de respuestas con un modelo LLM local y gestión básica de reservas mediante SQLite.
-
-## Limitaciones actuales 
-
-- El catálogo de destinos es limitado y está basado en archivos CSV.
-- La clasificación de intención depende de los ejemplos incluidos en el dataset.
-- El modelo LLM requiere tener Ollama instalado y ejecutándose en local.
-- La gestión de reservas es local y no incluye autenticación de usuarios.
-- La extracción de datos de la conversación todavía se realiza mediante formularios de Streamlit.
-- No incluye todavía una evaluación formal de precisión del clasificador.
-- No dispone de base de datos ni sistema de usuarios todavía.
-
+- El clasificador de intención depende de las frases de ejemplo y aún no tiene una evaluación formal
+  (precisión por intención).
+- El catálogo de destinos es pequeño y está en un CSV.
+- Los datos de la reserva se piden con formularios, no se extraen de la conversación.
+- Las reservas son locales y no hay usuarios ni autenticación.
 
 ## Mejoras futuras
 
-- Ampliar el dataset de intenciones.
-- Añadir más destinos y filtros de búsqueda.
-- Incorporar una base de datos en lugar de archivos CSV.
-- Añadir métricas de evaluación para la clasificación de intención.
-- Mejorar la interfaz visual de Streamlit.
-- Mejorar la extracción automática de datos de reserva desde lenguaje natural.
-- Añadir una tabla de clientes relacionada con la tabla de reservas.
-- Sustituir SQLite por PostgreSQL en una versión más avanzada.
-- Añadir respuestas generadas por IA para más tipos de intención.
+- Medir el clasificador con un conjunto de prueba aparte (precisión y matriz de confusión por intención).
+- Ampliar las frases de intención y el catálogo, y añadir filtros (presupuesto, fechas).
+- Extraer los datos de la reserva directamente del lenguaje natural con el LLM.
+- Añadir una tabla de clientes y pasar de SQLite a PostgreSQL.
 
 ## Autor
 
-Marc Forqués Isasi
-
+Marc Forqués Isasi · [GitHub](https://github.com/marcforques) · [Portfolio](https://marcforquesisasi.vercel.app)
